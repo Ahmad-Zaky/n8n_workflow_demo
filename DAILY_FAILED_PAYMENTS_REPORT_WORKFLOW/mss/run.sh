@@ -39,6 +39,8 @@ echo -e "$QUERY\n"
 
 source ~/.bash_aliases
 
+# NOTE: I am using .bash_aliases to set the environment variables for both Oracle and MSS databases,
+#       you can choose to set them in .bashrc or directly in this script as well.
 set_mex_prod_env_vars
 
 # Install pip if not already installed
@@ -47,13 +49,10 @@ set_mex_prod_env_vars
 # Add a new venv for MSS DB
 # python3 -m venv mssdb_env
 
+source mssdb_env/bin/activate
+
 # Install the pymssql package in the new venv
 # pip install pymssql
-
-# Create a new venv for MSS DB
-# python -m venv mssdb_env
-
-source mssdb_env/bin/activate
 
 # Install the required packages in the new venv
 # pip install -r requirements.txt
@@ -75,6 +74,8 @@ python format.py \
 
 deactivate
 
+# NOTE: I am using .bash_aliases to set the environment variables for both Oracle and MSS databases,
+#       you can choose to set them in .bashrc or directly in this script as well.
 unset_mex_prod_env_vars
 
 # Copy the output.txt to n8n container

@@ -39,21 +39,20 @@ echo "$QUERY"
 
 source ~/.bash_aliases
 
+# NOTE: I am using .bash_aliases to set the environment variables for both Oracle and MSS databases,
+#       you can choose to set them in .bashrc or directly in this script as well.
+set_mex_prod_env_vars
+
 # Install pip if not already installed
 # sudo apt install python3-pip
 
 # Add a new venv for Oracle DB
 # python3 -m venv oracledb_env
 
+source ./oracledb_env/bin/activate
+
 # Install the oracledb package in the new venv
 # pip install oracledb
-
-set_mex_prod_env_vars
-
-# Create a new venv for Oracle DB
-# python -m venv oracledb_env
-
-source ./oracledb_env/bin/activate
 
 # Install the required packages in the new venv
 # pip install -r requirements.txt
@@ -67,4 +66,6 @@ python3.12 export.py  \
 
 deactivate
 
+# NOTE: I am using .bash_aliases to set the environment variables for both Oracle and MSS databases,
+#       you can choose to set them in .bashrc or directly in this script as well.
 unset_mex_prod_env_vars
