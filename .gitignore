@@ -1,5 +1,5 @@
 mssdb_env/
-oracle_env/
+oracledb_env/
 venv/
 .venv/
 __pycache__/
