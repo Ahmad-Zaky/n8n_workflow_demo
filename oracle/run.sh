@@ -50,7 +50,13 @@ source ~/.bash_aliases
 
 set_mex_prod_env_vars
 
+# Create a new venv for Oracle DB
+# python -m venv oracledb_env
+
 source ./oracledb_env/bin/activate
+
+# Install the required packages in the new venv
+# pip install -r requirements.txt
 
 python3.12 export.py  \
  --user $ORACLE_USERNAME   \

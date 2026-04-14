@@ -50,7 +50,13 @@ set_mex_prod_env_vars
 # Install the pymssql package in the new venv
 # pip install pymssql
 
+# Create a new venv for MSS DB
+# python -m venv mssdb_env
+
 source mssdb_env/bin/activate
+
+# Install the required packages in the new venv
+# pip install -r requirements.txt
 
 # Run the export.py script to execute the query and save results to output.csv
 python3 export.py           \

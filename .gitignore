@@ -1,0 +1,6 @@
+mssdb_env/
+oracle_env/
+venv/
+.venv/
+__pycache__/
+*.pyc
