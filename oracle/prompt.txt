@@ -1,0 +1,30 @@
+Please read the output.csv file from the current directory,
+and extract the following values:
+
+
+* From startzeit_ist field extract the date value and format it like this YYYY-MM-DD.
+* From param_request field extract INVOICE_TENANT_ID.
+* From param_request field extract ADDRESS_ID.
+* From param_response field extract message value but exclude this part at the beginning "Client request(POST https://api.paypal.com/v2/checkout/orders) invalid:".
+
+After fetching these values reformat them for each row we need to pass the output.csv content to
+the format.py script, which formats these values like the following examples:
+
+
+Date: 2025-11-14
+ADDRESS_ID: 493520
+INVOICE_TENANT_ID: XX
+Error: AGREEMENT_ALREADY_CANCELLED - The requested agreement is already canceled.  --- The requested action could not be performed, semantically incorrect, or failed business validation.
+
+Date: 2025-11-14
+ADDRESS_ID: 493520
+INVOICE_TENANT_ID: XX
+Error: AGREEMENT_ALREADY_CANCELLED - The requested agreement is already canceled.  --- The requested action could not be performed, semantically incorrect, or failed business validation.
+
+Date: 2025-11-14
+ADDRESS_ID: 493520
+INVOICE_TENANT_ID: XX
+Error: AGREEMENT_ALREADY_CANCELLED - The requested agreement is already canceled.  --- The requested action could not be performed, semantically incorrect, or failed business validation.
+
+
+The next step, the same format.py script will dump the new formatted text into output.txt file in a directory with name result within the directory above the current one.

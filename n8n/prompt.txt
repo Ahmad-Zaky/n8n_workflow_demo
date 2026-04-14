@@ -1,0 +1,38 @@
+I have a bash script written in "run.sh" file within two directories mss/oracle that utilizes a python script to do the following:
+
+- Run sql command against database (oracle/mss) and parse the output and reformat it and dump the result into a "output.txt" file.
+ 
+The "run.sh" accepts three arguments:
+
+1. --restcall-url, example: https://yourdomain/yourendpoint
+2. --date-from, example: 20251125
+3. --date-to, example: 20251127
+
+Command example:
+
+`./run.sh --restcall-url=https://yourdomain/yourendpoint --date-from=20251125 --date-to=20251127`
+
+
+I want a n8n workflow written in json file format that does the following:
+
+- I want a trigger that could be executed manually and scheduled to run at morning 9 AM from Monday to Friday.
+- I want the workflow to set default values for the three arguments --restcall-url, --date-from, --date-to, 
+  the date from and to will be the current date, and the url will be the same url in the example given above.
+- I want the workflow to have a node that will access my local machine and runs the "run.sh" command like the example above.
+- After finishing the workflow will have another node that takes the "output.txt" file, and send an email that is also predefined and could be
+  overwritten manually, the subject and body of that email will also be predefined, and also over writable if possible.
+- As a note worth to mention, I am running my n8n instance locally using docker.
+
+This is the current docker command that I use to run n8n instance:
+
+```bash
+docker run -it --rm \
+    --name n8n  \
+    -p 5678:5678  \
+    -e GENERIC_TIMEZONE="Africa/Cairo"  \
+    -e TZ="Africa/Cairo"  \
+    -e N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true  \
+    -e N8N_RUNNERS_ENABLED=true  \
+    -v n8n_data:/home/node/.n8n  \
+    docker.n8n.io/n8nio/n8n
+```
