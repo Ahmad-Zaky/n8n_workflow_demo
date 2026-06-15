@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 # Test run.sh command:
 # ./run.sh --restcall-url=https://yourdomain.com/yourendpoint --date-from=20251125 --date-to=20251127
@@ -59,10 +60,10 @@ source mssdb_env/bin/activate
 
 # Run the export.py script to execute the query and save results to output.csv
 python3 export.py           \
- --user $MSS_USERNAME       \
- --password $MSS_PASSWORD   \
- --host $MSS_HOST           \
- --database $MSS_DATABASE   \
+ --user $MSSQL_USERNAME       \
+ --password $MSSQL_PASSWORD   \
+ --host $MSSQL_HOST           \
+ --database $MSSQL_DATABASE   \
  --query "$QUERY"           \
  --output output.csv
 
